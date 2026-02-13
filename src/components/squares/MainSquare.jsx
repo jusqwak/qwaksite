@@ -6,16 +6,17 @@ export default function MainSquare({
   baseVW = 40,
   minScale = 0.3,
   activeLabel,
-  setActive,
-  label = "Main"
+  onClick
 }) {
-  const scale = 1 - (1 - minScale) * zoom;
+  const baseScale = 1 - (1 - minScale) * zoom;
+  const targetScale = activeLabel ? baseScale * 0.4 : baseScale;
 
-  const isActive = activeLabel === label;
-  const isHidden = activeLabel !== null && !isActive;
+  // Vertical offset when active
+  const moveDown = activeLabel ? 270 : 0; // pixels
 
   return (
     <motion.div
+      onClick={activeLabel ? onClick : null}
       style={{
         position: "absolute",
         top: "50%",
@@ -27,15 +28,19 @@ export default function MainSquare({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        zIndex: 10,
+        zIndex: 100,
+        cursor: activeLabel ? "pointer" : "default",
       }}
       animate={{
-        x: "-50%",
-        y: "-50%",
-        scale,
-        opacity: isHidden ? 0 : 1, // 👈 this makes it disappear
+        x: "-50%",           // horizontal centering
+        y: `calc(-50% + ${moveDown}px)`, // vertical centering + offset
+        scale: targetScale,
       }}
-      transition={{ type: "spring", stiffness: 120, damping: 25 }}
+      transition={{
+        type: "spring",
+        stiffness: 120,
+        damping: 25,
+      }}
     >
       <img src={logo} alt="logo" style={{ width: "80%", height: "80%" }} />
     </motion.div>
