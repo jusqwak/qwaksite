@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 export default function Square3({ zoom, label, activeLabel, setActive }) {
 
-  const widthVW = 20;              // responsive width
-  const aspect = 700 / 1650;        // preserve shape
+  const widthVW = 20.5;              // responsive width
+  const aspect = 700 / 1610;        // preserve shape
   const gapVW = 2;                 // responsive gap
-  const pos = { x: 1.76, y: 0 };
+  const pos = { x: 1.725, y: -.003 };
 
   const fadeStart = 0.35;   // zoom value where fade begins
   const fadeLength = 0.3;  // how long the fade lasts
@@ -20,7 +20,7 @@ export default function Square3({ zoom, label, activeLabel, setActive }) {
       onClick={() => setActive(isActive ? null : label)}
       style={{
         position: "absolute",
-        background: "#FFBA9B",
+        background: "#ca9b00",
         color: "#fff",
         fontWeight: "bold",
         display: "flex",

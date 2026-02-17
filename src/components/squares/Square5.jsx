@@ -3,10 +3,10 @@ import SocialCard from "./infocard/socials";
 
 export default function Square5({ zoom, label, activeLabel, setActive }) {
 
-  const widthVW = 33.5;              // responsive width
+  const widthVW = 34;              // responsive width
   const aspect = 700 / 350;        // preserve shape
   const gapVW = 2;                 // responsive gap
-  const pos = { x: .3, y: .8 };
+  const pos = { x: .307, y: .79 };
 
   const fadeStart = 0.35;   // zoom value where fade begins
   const fadeLength = 0.3;  // how long the fade lasts
@@ -21,7 +21,7 @@ export default function Square5({ zoom, label, activeLabel, setActive }) {
       onClick={() => setActive(isActive ? null : label)}
       style={{
         position: "absolute",
-        background: "#FFBA9B",
+        background: "#01233f",
         color: "#fff",
         fontWeight: "bold",
         display: "flex",

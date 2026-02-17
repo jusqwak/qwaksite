@@ -3,10 +3,10 @@ import AboutCard from "./infocard/about";
 
 export default function Square1({ zoom, label, activeLabel, setActive }) {
 
-  const widthVW = 53;              // responsive width
-  const aspect = 700 / 220;        // preserve shape
-  const gapVW = 2;                 // responsive gap
-  const pos = { x: -0.375, y: -0.82 };
+  const widthVW = 55; // Width
+  const aspect = 700 / 220; // Height
+  const gapVW = 2;
+  const pos = { x: -0.378, y: -0.78 };
 
   const fadeStart = 0.35;   // zoom value where fade begins
   const fadeLength = 0.3;  // how long the fade lasts
@@ -21,7 +21,7 @@ export default function Square1({ zoom, label, activeLabel, setActive }) {
       onClick={() => setActive(isActive ? null : label)}
       style={{
         position: "absolute",
-        background: "#FFBA9B",
+        background: "#01233f",
         color: "#fff",
         fontWeight: "bold",
         display: "flex",

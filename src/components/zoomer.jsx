@@ -5,19 +5,19 @@ export default function ZoomScene() {
   const [zoom, setZoom] = useState(0);
   const [activeLabel, setActive] = useState(null);
 
-  // Reverse scroll zoom - disabled when a box is active
+ // Reverse scroll zoom - disabled when a box is active
   const handleWheel = (e) => {
-    e.preventDefault();
-    
-    // Don't allow scrolling when a box is active
-    if (activeLabel) return;
-    
-    setZoom((prev) => {
-      let next = prev + e.deltaY * 0.001;
-      if (next > 1) next = 1;
-      if (next < 0) next = 0;
-      return next;
-    });
+    // Only prevent default when we're actually zooming (no active box)
+    if (!activeLabel) {
+      e.preventDefault();
+      
+      setZoom((prev) => {
+        let next = prev + e.deltaY * 0.001;
+        if (next > 1) next = 1;
+        if (next < 0) next = 0;
+        return next;
+      });
+    }
   };
 
   // Back button returns to "all boxes visible" state

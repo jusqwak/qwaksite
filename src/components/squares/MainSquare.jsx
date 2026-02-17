@@ -35,6 +35,7 @@ export default function MainSquare({
         x: "-50%",           // horizontal centering
         y: `calc(-50% + ${moveDown}px)`, // vertical centering + offset
         scale: targetScale,
+        borderRadius: activeLabel ? "0%" : "0%",
       }}
       transition={{
         type: "spring",
